@@ -6,7 +6,30 @@
         (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
       <br><br>
       <ul class="list-group">
-        <div *ngIf="!onlyOdd" >
+        <!-- <div *ngIf="!onlyOdd" >
+          <li
+            *ngFor="let num of oddNumbers" 
+            class="list-group-item"
+            [ngClass]="{'odd': num % 2 !== 0}"
+            [ngStyle]="{'color': num % 2 !== 0 ? 'red' : 'darkblue'}">
+            {{ num }}
+          </li>
+        </div> -->
+
+      <!-- custom structural directive  -->
+        <!-- without *  -->
+        <!-- <ng-template [appUnless]="onlyOdd">
+          <li
+            *ngFor="let num of oddNumbers" 
+            class="list-group-item"
+            [ngClass]="{'odd': num % 2 !== 0}"
+            [ngStyle]="{'color': num % 2 !== 0 ? 'red' : 'darkblue'}">
+            {{ num }}
+          </li>
+        </ng-template> -->
+
+        <!-- classic version with * -->
+        <div *appUnless="onlyOdd" >
           <li
             *ngFor="let num of oddNumbers" 
             class="list-group-item"
